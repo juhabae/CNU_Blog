@@ -8,6 +8,7 @@ import useGetPostById from '../queries/useGetPostById';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import useDeletePostById from '../queries/useDeletePostById';
+import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } from 'react';
 
 const Title = styled.h1`
   font-size: 3rem;
@@ -43,23 +44,23 @@ const TagWrapper = styled.div`
 `;
 
 const Info = styled.div`
-    font-size: 1rem;
-    color: #495057;
+  font-size: 1rem;
+  color: #495057;
 `;
 
 const ContentsArea = styled.div`
-    width: 768px;
-    margin: 5rem auto 0px;
-    font-size: 1.125rem;
-    color: #212529;
-    line-height: 1.7;
-    letter-spacing: -0.004em;
-    word-break: keep-all;
-    overflow-wrap: break-word;
+  width: 768px;
+  margin: 5rem auto 0px;
+  font-size: 1.125rem;
+  color: #212529;
+  line-height: 1.7;
+  letter-spacing: -0.004em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 `;
 
 const Text = styled.p`
-    width: 700px;
+  width: 700px;
 `;
 
 const Post = () => {
@@ -105,9 +106,24 @@ const Post = () => {
         )}
       </div>
       <ContentsArea>
-        {post?.contents.split('\n').map((text, index) => (
-          <Text key={index}>{text}</Text>
-        ))}
+        {post?.contents
+          .split('\n')
+          .map(
+            (
+              text:
+                | string
+                | number
+                | boolean
+                | ReactElement<any, string | JSXElementConstructor<any>>
+                | ReactFragment
+                | ReactPortal
+                | null
+                | undefined,
+              index: Key | null | undefined,
+            ) => (
+              <Text key={index}>{text}</Text>
+            ),
+          )}
       </ContentsArea>
     </div>
   );
