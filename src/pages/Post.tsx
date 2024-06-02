@@ -2,11 +2,7 @@ import { useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import NotFound from '../components/NotFound';
 import Tag from '../components/Tag';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import useGetPostById from '../queries/useGetPostById';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import useDeletePostById from '../queries/useDeletePostById';
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } from 'react';
 

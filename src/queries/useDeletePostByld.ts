@@ -1,8 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { useMutation } from '@tanstack/react-query';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { deletePostById } from '../api';
 import { useNavigate } from 'react-router-dom';
 
